@@ -1,0 +1,136 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: rgb(228, 213, 181);
+  color: #817062(0, 0%, 0%);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 50px auto;
+  padding: 20px;
+  background: #c2bb9b;
+  border: 2px solid #000000;
+  border-radius: 12px;
+  color: #3b2f26
+}
+
+figcaption {
+  font-size: 13px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 80px;
+  margin-bottom: 20px;
+}
+
+ul {
+  font-size: 19px;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 19px;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+img {
+  width: 70%;
+  border-radius: 12px;
+  margin: 20px 0;
+
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.container img {
+  display: block;
+  margin: 40px auto;
+  max-width: 100%;
+}
+
+.btn-shiny {
+  display: inline-block;
+  justify-content: center;
+  padding: 10px 20px;
+  background: rgb(192, 172, 117);
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: sans-serif;
+  border-radius: 30px;
+  text-decoration: none;
+  border: 2px solid #000000;
+  border-radius: 12px;
+  margin: 5px;
+  padding: 12px 15px;
+}
+
+.center-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+header {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url('images/slavyanskiy.png') center/cover;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+header h1 {
+  font-family: 'Lora', serif;
+  font-size: 2.8rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 0;
+  padding: 20px;
+  border-top: 2px solid #d4af37;
+  border-bottom: 2px solid #d4af37;
+}
+
+nav {
+  background: #aca276;
+  position: sticky;
+  top: 0;
+  z-index: 500;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+nav a {
+  display: flex;
+  padding: 20px 20px;
+  color: #e0e0e0;
+  text-decoration: none;
+  font-weight: 100;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: #c5a282;
+  background: rgba(255, 255, 255, 0.05);
+}

@@ -3,8 +3,8 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   background: #eee9a6;
   color: #000000;
-  max-width: 650px;   /* ограничивает ширину текста */
-  margin: 0 auto;     /* центрирует по горизонтали */
+  max-width: 650px; 
+  margin: 0 auto;  
   padding: 20px;
 }
 
@@ -66,7 +66,7 @@ html {
 }
 header {
     background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
-                url('images/slavyanskiy.png') center/cover; /* Карта как фон шапки */
+                url('images/slavyanskiy.png') center/cover;
     height: 200px;
     display: flex;
     align-items: center;

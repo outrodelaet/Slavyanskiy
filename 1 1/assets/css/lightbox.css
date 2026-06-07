@@ -1,0 +1,77 @@
+/* Кликабельные изображения */
+.container img {
+  cursor: zoom-in;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.container img:hover {
+  transform: scale(1.01);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+}
+
+/* Модальное окно (lightbox) */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.85);
+  /* центрируем содержимое */
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
+.lightbox.is-open {
+  display: flex;
+}
+
+.lightbox__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 92vw;
+  max-height: 92vh;
+}
+
+.lightbox__image {
+  max-width: 92vw;
+  max-height: 80vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 6px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  cursor: default;
+  background: #fff;
+}
+
+.lightbox__caption {
+  margin-top: 16px;
+  max-width: 92vw;
+  color: #f2f2f2;
+  font-size: 16px;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.lightbox__close {
+  position: absolute;
+  top: 18px;
+  right: 24px;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.lightbox__close:hover {
+  background: rgba(255, 255, 255, 0.28);
+}
