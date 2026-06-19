@@ -16,7 +16,6 @@
   inset: 0;
   z-index: 1000;
   background: rgba(0, 0, 0, 0.85);
-  /* центрируем содержимое */
   align-items: center;
   justify-content: center;
   padding: 40px 20px;

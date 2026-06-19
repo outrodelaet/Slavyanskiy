@@ -1,136 +1,263 @@
+/* ── Base ── */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   background: rgb(228, 213, 181);
-  color: #817062(0, 0%, 0%);
+  color: #3b2f26;
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
 }
 
+/* ── Reading progress bar ── */
+#reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(to right, #b8900a, #d4af37, #f0d060);
+  z-index: 9999;
+  transition: width 0.1s linear;
+  pointer-events: none;
+}
+
+/* ── Main content container ── */
 .container {
   max-width: 1000px;
-  margin: 50px auto;
-  padding: 20px;
+  margin: 110px auto 40px;
+  padding: 32px 36px;
   background: #c2bb9b;
-  border: 2px solid #000000;
-  border-radius: 12px;
-  color: #3b2f26
+  border: 2px solid #a09070;
+  border-radius: 14px;
+  color: #3b2f26;
+  transition: box-shadow 0.35s;
 }
 
-figcaption {
-  font-size: 13px;
-  margin-bottom: 20px;
-  text-align: center;
+.container:hover {
+  box-shadow: 0 10px 36px rgba(0, 0, 0, 0.14);
 }
 
+/* Offset anchor targets so fixed header doesn't cover them */
+[id] {
+  scroll-margin-top: 110px;
+}
+
+/* ── Scroll reveal ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger nested reveals */
+.reveal.visible .reveal {
+  transition-delay: 0.15s;
+}
+
+/* ── Ornamental section divider ── */
+.ornament-divider {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 2.8rem 0;
+  color: #d4af37;
+  font-size: 1.1rem;
+  user-select: none;
+}
+
+.ornament-divider::before,
+.ornament-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #c8a030, transparent);
+}
+
+/* ── Typography ── */
 h1 {
-  font-size: 80px;
-  margin-bottom: 20px;
+  font-family: 'Lora', serif;
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #2e2318;
+  line-height: 1.2;
 }
 
-ul {
-  font-size: 19px;
-  margin-bottom: 20px;
+h2 {
+  font-family: 'Lora', serif;
+  font-size: 1.45rem;
+  color: #3b2f26;
+  margin: 2rem 0 0.8rem;
+  padding-left: 14px;
+  border-left: 4px solid #d4af37;
+  line-height: 1.3;
+}
+
+h3,
+h4 {
+  font-family: 'Lora', serif;
+  font-size: 1.1rem;
+  color: #5a4030;
+  margin: 1.2rem 0 0.5rem;
 }
 
 p {
-  font-size: 19px;
-  line-height: 1.7;
-  margin-bottom: 20px;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin-bottom: 1.1rem;
 }
 
+ul,
+ol {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin-bottom: 1.1rem;
+  padding-left: 1.6rem;
+}
+
+li {
+  margin-bottom: 0.4rem;
+}
+
+/* ── Drop cap ── */
+.drop-cap::first-letter {
+  float: left;
+  font-family: 'Lora', serif;
+  font-size: 3.8rem;
+  line-height: 0.78;
+  margin-right: 10px;
+  margin-top: 8px;
+  color: #c8a030;
+}
+
+/* ── Images ── */
 img {
   width: 70%;
   border-radius: 12px;
   margin: 20px 0;
-
-}
-
-html {
-  scroll-behavior: smooth;
 }
 
 .container img {
   display: block;
-  margin: 40px auto;
+  margin: 30px auto;
   max-width: 100%;
-}
-
-.btn-shiny {
-  display: inline-block;
-  justify-content: center;
-  padding: 10px 20px;
-  background: rgb(192, 172, 117);
-  color: white;
-  font-size: 16px;
-  font-weight: bold;
-  font-family: sans-serif;
-  border-radius: 30px;
-  text-decoration: none;
-  border: 2px solid #000000;
+  width: auto;
+  max-height: 500px;
   border-radius: 12px;
-  margin: 5px;
-  padding: 12px 15px;
 }
 
+figure {
+  margin: 0;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+figure:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.18);
+}
+
+figcaption {
+  font-size: 0.82rem;
+  color: #6b5a4a;
+  text-align: center;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+/* ── Expandable details ── */
+details {
+  background: rgba(0, 0, 0, 0.04);
+  border-left: 3px solid #d4af37;
+  border-radius: 6px;
+  padding: 12px 18px;
+  margin: 1.2rem 0;
+}
+
+details summary {
+  cursor: pointer;
+  font-weight: 600;
+  font-family: 'Lora', serif;
+  color: #5a3e28;
+  user-select: none;
+  transition: color 0.2s;
+}
+
+details summary:hover {
+  color: #c8a030;
+}
+
+details[open] summary {
+  margin-bottom: 10px;
+}
+
+/* ── Section spacing ── */
+section {
+  margin-bottom: 1rem;
+}
+
+/* ── Center wrapper ── */
 .center-wrapper {
   display: flex;
   justify-content: center;
   padding: 10px;
-}
-
-header {
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url('images/slavyanskiy.png') center/cover;
-  height: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  text-align: center;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-}
-
-header h1 {
-  font-family: 'Lora', serif;
-  font-size: 2.8rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  margin: 0;
-  padding: 20px;
-  border-top: 2px solid #d4af37;
-  border-bottom: 2px solid #d4af37;
-}
-
-nav {
-  background: #aca276;
-  position: sticky;
-  top: 0;
-  z-index: 500;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-nav ul {
-  list-style: none;
-  padding: 0px;
-  margin: 0px;
-  display: flex;
-  justify-content: center;
+  gap: 10px;
   flex-wrap: wrap;
 }
 
-nav a {
-  display: flex;
-  padding: 20px 20px;
-  color: #e0e0e0;
+/* ── Buttons ── */
+.btn-shiny {
+  display: inline-block;
+  padding: 10px 22px;
+  background: rgb(192, 172, 117);
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  font-family: sans-serif;
+  border-radius: 24px;
   text-decoration: none;
-  font-weight: 100;
-  text-transform: uppercase;
-  font-size: 0.85rem;
-  transition: 0.3s;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  transition: background 0.25s, transform 0.2s;
 }
 
-nav a:hover {
-  color: #c5a282;
-  background: rgba(255, 255, 255, 0.05);
+.btn-shiny:hover {
+  background: #c8a030;
+  transform: translateY(-2px);
+}
+
+/* ── Footer ── */
+.site-footer {
+  text-align: center;
+  padding: 20px;
+  color: #7a6a58;
+  font-size: 0.88rem;
+  margin-top: 1.5rem;
+  line-height: 1.6;
+}
+
+/* ── Responsive ── */
+@media (max-width: 700px) {
+  body {
+    padding: 10px;
+  }
+
+  .container {
+    margin-top: 130px;
+    padding: 20px 18px;
+  }
+
+  [id] {
+    scroll-margin-top: 130px;
+  }
 }

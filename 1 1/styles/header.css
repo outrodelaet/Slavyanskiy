@@ -1,69 +1,113 @@
-.site-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 50px;
-  background-color: #22211b;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.089);
-  border-bottom: 2px solid #ac8c5c;
-}
-
-.logo {
-  font-size: 15px;
-  font-weight: bold;
-  color: #ece9bc;
-}
-
-.nav-menu {
-  display: flex;
-  gap: 15px;
-  align-items: center;
-  line-height: 1;
-  gap: 15px;
-  background: transparent;
-  border: none;
-}
-
-.btn-nav {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  padding: 8px 18px;
-  background: #c5bc6bbd;
-  color: rgb(255, 255, 255);
-  border-radius: 20px;
-  font-family: sans-serif;
-  font-size: 14px;
-  transition: 0.3s;
-}
-
-.btn-nav:hover {
-  background: #cebc83;
-  transform: translateY(-1px);
-}
-
-header h1 {
-  font-family: 'Lora', serif;
-  font-size: 2.8rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  margin: 0;
-  padding: 20px;
-  border-top: 2px solid #ffffff;
-  border-bottom: 2px solid #cfb57d;
-}
-
+/* ── Fixed site header (two rows) ── */
 .site-header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 1000;
+  background: #22211b;
+  border-bottom: 2px solid #ac8c5c;
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.45);
+  box-sizing: border-box;
+}
+
+/* Top row: logo + page navigation */
+.header-top {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 50px;
-  background-color: #cab675;
-  box-sizing: border-box;
+  padding: 13px 48px;
+}
+
+.logo {
+  font-family: 'Lora', serif;
+  font-size: 15px;
+  font-weight: bold;
+  color: #ece9bc;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+}
+
+/* Links to the three pages */
+.page-nav {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+/* Anchor links within the current page */
+.section-nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 7px 48px;
+  background: #1c1b15;
+  border-top: 1px solid #3a3828;
+}
+
+/* ── Shared button reset ── */
+.btn-nav,
+.btn-nav-sm {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  border-radius: 20px;
+  white-space: nowrap;
+  transition: background 0.25s, color 0.25s, transform 0.2s, border-color 0.25s;
+}
+
+/* Page-level buttons (larger) */
+.btn-nav {
+  padding: 7px 16px;
+  font-size: 13px;
+  font-family: sans-serif;
+  color: #d4c89a;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.btn-nav:hover {
+  background: rgba(212, 175, 55, 0.2);
+  color: #f0e0a0;
+  transform: translateY(-1px);
+  border-color: rgba(212, 175, 55, 0.45);
+}
+
+.btn-nav.active {
+  background: rgba(212, 175, 55, 0.22);
+  color: #d4af37;
+  border-color: rgba(212, 175, 55, 0.6);
+}
+
+/* Section-level buttons (smaller, subdued) */
+.btn-nav-sm {
+  padding: 4px 11px;
+  font-size: 12px;
+  font-family: sans-serif;
+  color: #9a8a6a;
+  background: transparent;
+  border: 1px solid transparent;
+}
+
+.btn-nav-sm:hover {
+  background: rgba(212, 175, 55, 0.1);
+  color: #d4af37;
+  border-color: rgba(212, 175, 55, 0.25);
+}
+
+/* ── Responsive ── */
+@media (max-width: 700px) {
+  .header-top {
+    padding: 12px 20px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .section-nav {
+    padding: 7px 20px;
+  }
+  .btn-nav {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
 }
