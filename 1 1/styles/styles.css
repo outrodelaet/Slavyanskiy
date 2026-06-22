@@ -1,4 +1,3 @@
-/* ── Base ── */
 html {
   scroll-behavior: smooth;
 }
@@ -12,7 +11,6 @@ body {
   padding: 20px;
 }
 
-/* ── Reading progress bar ── */
 #reading-progress {
   position: fixed;
   top: 0;
@@ -25,7 +23,6 @@ body {
   pointer-events: none;
 }
 
-/* ── Main content container ── */
 .container {
   max-width: 1000px;
   margin: 110px auto 40px;
@@ -41,12 +38,10 @@ body {
   box-shadow: 0 10px 36px rgba(0, 0, 0, 0.14);
 }
 
-/* Offset anchor targets so fixed header doesn't cover them */
 [id] {
   scroll-margin-top: 110px;
 }
 
-/* ── Scroll reveal ── */
 .reveal {
   opacity: 0;
   transform: translateY(26px);
@@ -58,12 +53,10 @@ body {
   transform: translateY(0);
 }
 
-/* Stagger nested reveals */
 .reveal.visible .reveal {
   transition-delay: 0.15s;
 }
 
-/* ── Ornamental section divider ── */
 .ornament-divider {
   display: flex;
   align-items: center;
@@ -82,7 +75,6 @@ body {
   background: linear-gradient(to right, transparent, #c8a030, transparent);
 }
 
-/* ── Typography ── */
 h1 {
   font-family: 'Lora', serif;
   font-size: clamp(1.8rem, 5vw, 3rem);
@@ -128,7 +120,6 @@ li {
   margin-bottom: 0.4rem;
 }
 
-/* ── Drop cap ── */
 .drop-cap::first-letter {
   float: left;
   font-family: 'Lora', serif;
@@ -139,7 +130,6 @@ li {
   color: #c8a030;
 }
 
-/* ── Images ── */
 img {
   width: 70%;
   border-radius: 12px;
@@ -176,7 +166,6 @@ figcaption {
   line-height: 1.5;
 }
 
-/* ── Expandable details ── */
 details {
   background: rgba(0, 0, 0, 0.04);
   border-left: 3px solid #d4af37;
@@ -202,12 +191,10 @@ details[open] summary {
   margin-bottom: 10px;
 }
 
-/* ── Section spacing ── */
 section {
   margin-bottom: 1rem;
 }
 
-/* ── Center wrapper ── */
 .center-wrapper {
   display: flex;
   justify-content: center;
@@ -216,7 +203,6 @@ section {
   flex-wrap: wrap;
 }
 
-/* ── Buttons ── */
 .btn-shiny {
   display: inline-block;
   padding: 10px 22px;
@@ -236,7 +222,6 @@ section {
   transform: translateY(-2px);
 }
 
-/* ── Footer ── */
 .site-footer {
   text-align: center;
   padding: 20px;
@@ -246,7 +231,6 @@ section {
   line-height: 1.6;
 }
 
-/* ── Responsive ── */
 @media (max-width: 700px) {
   body {
     padding: 10px;

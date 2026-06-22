@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../styles/styles.css">
     <link rel="stylesheet" href="../styles/header.css">
     <link rel="stylesheet" href="../styles/lightbox.css">
+    <link rel="stylesheet" href="../styles/map.css">
 </head>
 <body>
 
@@ -122,10 +123,75 @@
         </ul>
         <p>Среди центров становления государственности у славян были Древняя Русь, Польша, Чехия, Болгария, Сербия, Хорватия.</p>
 
-        <figure class="reveal">
-            <img src="../assets/images/картагосударств.png" alt="Карта славянских государств в конце IX века" title="Карта славянских государств в конце IX века">
-            <figcaption>Карта славянских государств в конце IX века</figcaption>
-        </figure>
+        <div class="timeline-map reveal" id="timeline-map" tabindex="0" role="group" aria-label="Интерактивная карта становления славянской государственности">
+            <div class="tm-head">
+                <h4 class="tm-year">VII век</h4>
+                <p class="tm-desc"></p>
+            </div>
+
+            <div class="tm-stage">
+                <svg viewBox="0 0 1000 720" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <rect class="tm-land" x="0" y="0" width="1000" height="720"/>
+
+                    <g class="tm-graticule">
+                        <line x1="0" y1="180" x2="1000" y2="180"/>
+                        <line x1="0" y1="360" x2="1000" y2="360"/>
+                        <line x1="0" y1="540" x2="1000" y2="540"/>
+                        <line x1="250" y1="0" x2="250" y2="720"/>
+                        <line x1="500" y1="0" x2="500" y2="720"/>
+                        <line x1="750" y1="0" x2="750" y2="720"/>
+                    </g>
+
+                    <path class="tm-water" d="M180,150 Q300,118 425,158 Q470,184 405,214 Q295,242 195,212 Q145,186 180,150 Z"/>
+                    <path class="tm-water" d="M0,80 L140,88 Q168,180 110,278 L0,300 Z"/>
+                    <path class="tm-water" d="M196,360 L232,356 L362,560 L326,586 Z"/>
+                    <path class="tm-water" d="M602,402 Q765,366 925,412 Q964,474 898,534 Q758,564 618,520 Q572,460 602,402 Z"/>
+                    <path class="tm-water" d="M150,648 Q360,616 705,628 L745,720 L150,720 Z"/>
+
+                    <text class="tm-sea-label" x="240" y="186">Балтийское море</text>
+                    <text class="tm-sea-label" x="730" y="470" text-anchor="middle">Чёрное море</text>
+                    <text class="tm-sea-label" x="250" y="470" transform="rotate(57 250 470)">Адриатика</text>
+                    <text class="tm-sea-label" x="420" y="690" text-anchor="middle">Средиземное море</text>
+
+                    <g class="tm-layer" data-era="7">
+                        <path class="tm-region" data-name="Государство Само" fill="#b5651d"
+                              d="M210,300 L250,278 L300,285 L345,320 L355,360 L320,392 L270,396 L225,376 L200,340 Z"/>
+                        <path class="tm-region" data-name="Союз семи племён" fill="#6f8a4f"
+                              d="M500,455 L560,450 L595,470 L590,500 L545,512 L505,496 L490,476 Z"/>
+                        <text class="tm-region-label" x="278" y="342">Само</text>
+                        <text class="tm-region-label" x="542" y="486">Союз семи племён</text>
+                    </g>
+
+                    <g class="tm-layer" data-era="9">
+                        <path class="tm-region" data-name="Великая Моравия" fill="#a8842c"
+                              d="M205,290 L270,265 L360,280 L410,320 L420,376 L380,420 L320,432 L255,410 L205,360 L185,320 Z"/>
+                        <text class="tm-region-label" x="300" y="352">Великая Моравия</text>
+                    </g>
+
+                    <g class="tm-layer" data-era="11">
+                        <path class="tm-region" data-name="Королевство Хорватия" fill="#9c4f3a"
+                              d="M283,405 L335,420 L365,455 L370,500 L335,522 L305,506 L285,470 L273,435 Z"/>
+                        <path class="tm-region" data-name="Сербия" fill="#46688f"
+                              d="M380,485 L435,478 L465,500 L460,540 L425,556 L385,540 L370,510 Z"/>
+                        <text class="tm-region-label" x="322" y="466">Хорватия</text>
+                        <text class="tm-region-label" x="420" y="518">Сербия</text>
+                    </g>
+                </svg>
+            </div>
+
+            <div class="tm-controls">
+                <div class="tm-ticks">
+                    <button type="button" class="tm-tick" data-step="0" aria-pressed="false">VII век</button>
+                    <button type="button" class="tm-tick" data-step="1" aria-pressed="false">IX век</button>
+                    <button type="button" class="tm-tick" data-step="2" aria-pressed="false">XI век</button>
+                </div>
+                <input type="range" class="tm-slider" min="0" max="2" step="1" value="0" aria-label="Век">
+            </div>
+
+            <div class="tm-legend"></div>
+
+            <p class="tm-note">Границы приведены приблизительно, в учебных целях.</p>
+        </div>
     </section>
 
     <div class="ornament-divider reveal">✦</div>
@@ -143,7 +209,8 @@
     <p>2026 Славянский этногенез.</p>
 </footer>
 
-<script src="../assets/js/lightbox.js" defer></script>
-<script src="../assets/js/main.js" defer></script>
+<script src="../js/lightbox.js" defer></script>
+<script src="../js/timeline-map.js" defer></script>
+<script src="../js/main.js" defer></script>
 </body>
 </html>

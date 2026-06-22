@@ -1,4 +1,3 @@
-/* ── Fixed site header (two rows) ── */
 .site-header {
   position: fixed;
   top: 0;
@@ -11,7 +10,6 @@
   box-sizing: border-box;
 }
 
-/* Top row: logo + page navigation */
 .header-top {
   display: flex;
   justify-content: space-between;
@@ -28,14 +26,12 @@
   text-decoration: none;
 }
 
-/* Links to the three pages */
 .page-nav {
   display: flex;
   gap: 6px;
   flex-wrap: wrap;
 }
 
-/* Anchor links within the current page */
 .section-nav {
   display: flex;
   justify-content: center;
@@ -46,7 +42,6 @@
   border-top: 1px solid #3a3828;
 }
 
-/* ── Shared button reset ── */
 .btn-nav,
 .btn-nav-sm {
   display: inline-flex;
@@ -57,7 +52,6 @@
   transition: background 0.25s, color 0.25s, transform 0.2s, border-color 0.25s;
 }
 
-/* Page-level buttons (larger) */
 .btn-nav {
   padding: 7px 16px;
   font-size: 13px;
@@ -80,7 +74,6 @@
   border-color: rgba(212, 175, 55, 0.6);
 }
 
-/* Section-level buttons (smaller, subdued) */
 .btn-nav-sm {
   padding: 4px 11px;
   font-size: 12px;
@@ -96,7 +89,6 @@
   border-color: rgba(212, 175, 55, 0.25);
 }
 
-/* ── Responsive ── */
 @media (max-width: 700px) {
   .header-top {
     padding: 12px 20px;

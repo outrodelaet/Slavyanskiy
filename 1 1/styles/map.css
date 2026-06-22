@@ -1,0 +1,284 @@
+/* Интерактивная карта-таймлайн славянской государственности */
+
+.timeline-map {
+  margin: 30px auto;
+  padding: 22px 24px 18px;
+  background: linear-gradient(180deg, #cdc5a4 0%, #c2bb9b 100%);
+  border: 2px solid #a09070;
+  border-radius: 14px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.tm-head {
+  text-align: center;
+  margin-bottom: 14px;
+  min-height: 74px;
+}
+
+.tm-year {
+  font-family: 'Lora', serif;
+  font-size: 1.6rem;
+  color: #5a3e28;
+  margin: 0 0 6px;
+  letter-spacing: 0.04em;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.tm-desc {
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: #463a2c;
+  max-width: 640px;
+  margin: 0 auto;
+  transition: opacity 0.3s ease;
+}
+
+.tm-year.is-swapping,
+.tm-desc.is-swapping {
+  opacity: 0;
+  transform: translateY(6px);
+}
+
+/* Сцена с картой */
+.tm-stage {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #9a8b68;
+  background: #bcae8a;
+}
+
+.tm-stage svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Подложка карты */
+.tm-land {
+  fill: #d4c79f;
+}
+
+.tm-water {
+  fill: #9fb1b0;
+  opacity: 0.85;
+}
+
+.tm-river {
+  fill: none;
+  stroke: #8aa0a0;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  opacity: 0.7;
+}
+
+.tm-sea-label {
+  fill: #5f7170;
+  font-size: 15px;
+  font-style: italic;
+  font-family: 'Lora', serif;
+  letter-spacing: 0.04em;
+  pointer-events: none;
+  user-select: none;
+}
+
+.tm-graticule {
+  stroke: #b7aa84;
+  stroke-width: 1;
+  opacity: 0.5;
+}
+
+/* Слои эпох */
+.tm-layer {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease;
+}
+
+.tm-layer.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.tm-region {
+  fill-opacity: 0.78;
+  stroke: #6e4a1f;
+  stroke-width: 2;
+  stroke-linejoin: round;
+  transform-box: fill-box;
+  transform-origin: center;
+  cursor: help;
+  transition: fill-opacity 0.2s ease, filter 0.2s ease;
+}
+
+.tm-layer.is-active .tm-region {
+  animation: tm-pop 0.6s cubic-bezier(0.2, 0.7, 0.3, 1) both;
+}
+
+.tm-region:hover {
+  fill-opacity: 0.95;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.35));
+}
+
+.tm-region-label {
+  fill: #2e2318;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: 'Lora', serif;
+  text-anchor: middle;
+  paint-order: stroke;
+  stroke: rgba(244, 236, 214, 0.85);
+  stroke-width: 3px;
+  stroke-linejoin: round;
+  pointer-events: none;
+  user-select: none;
+}
+
+.tm-layer.is-active .tm-region-label {
+  animation: tm-fade-up 0.6s 0.15s ease both;
+}
+
+@keyframes tm-pop {
+  from { transform: scale(0.92); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+
+@keyframes tm-fade-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Управление */
+.tm-controls {
+  margin: 18px 6px 6px;
+}
+
+.tm-ticks {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.tm-tick {
+  flex: 0 0 auto;
+  min-width: 64px;
+  padding: 6px 10px;
+  background: transparent;
+  border: 1px solid #a09070;
+  border-radius: 18px;
+  color: #5a4030;
+  font-family: 'Lora', serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
+}
+
+.tm-tick:hover {
+  transform: translateY(-2px);
+  border-color: #c8a030;
+}
+
+.tm-tick.is-active {
+  background: #c8a030;
+  border-color: #c8a030;
+  color: #fff;
+}
+
+/* Слайдер */
+.tm-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 4px;
+  background: linear-gradient(to right, #b8900a, #d4af37, #f0d060);
+  outline: none;
+  cursor: pointer;
+}
+
+.tm-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #fff;
+  border: 3px solid #c8a030;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  transition: transform 0.15s ease;
+}
+
+.tm-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.12);
+}
+
+.tm-slider::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #fff;
+  border: 3px solid #c8a030;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+/* Легенда */
+.tm-legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px 18px;
+  margin-top: 16px;
+  min-height: 24px;
+}
+
+.tm-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.92rem;
+  color: #3b2f26;
+  animation: tm-fade-up 0.4s ease both;
+}
+
+.tm-legend-swatch {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  border: 1px solid #6e4a1f;
+  flex: 0 0 auto;
+}
+
+.tm-note {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #6b5a4a;
+  font-style: italic;
+  margin: 12px 0 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tm-layer.is-active .tm-region,
+  .tm-layer.is-active .tm-region-label,
+  .tm-legend-item {
+    animation: none;
+  }
+}
+
+@media (max-width: 700px) {
+  .tm-tick {
+    min-width: 0;
+    flex: 1;
+    font-size: 0.82rem;
+    padding: 6px 4px;
+  }
+
+  .tm-sea-label {
+    font-size: 13px;
+  }
+
+  .tm-region-label {
+    font-size: 13px;
+  }
+}
